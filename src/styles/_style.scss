@@ -1,0 +1,39 @@
+.mb_1 {
+    margin-bottom: 1rem;
+}
+.mb_3 {
+    margin-bottom: 3rem;
+}
+
+.ir_pm {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row_col {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 960px) {
+    .row_col {
+        flex-direction: row;
+    }
+}

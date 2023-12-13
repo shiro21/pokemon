@@ -1,0 +1,258 @@
+@import "./color.scss";
+
+header {
+    position: relative;
+    width: 100%;
+}
+
+#header {
+    height: auto;
+    padding: 30px 25px 20px;
+    background-color: $light_black_color;
+    .main_title {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 1rem;
+        > img {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+        > em {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+    }
+    .main_input {
+        position: relative;
+        border-bottom: 1px solid #5F5F5F;
+        padding-bottom: 1.5rem;
+        > input[type=text] {
+            font-size: 1.2rem;
+            height: 40px;
+            background-color: $black_color;
+            padding-right: 40px;
+            caret-color: #FFFFFF;
+            color: #FFFFFF;
+            &::placeholder {
+                color: #FFFFFF;
+            }
+        }
+        > button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background-color: $red_color;
+            > img {
+                width: 24px;
+                height: 24px;
+                z-index: 1;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 12px;
+                height: 13px;
+                transform: none;
+                background: transparent url(./icons/btn_top.png);
+                background-size: contain;
+            }
+            > i {
+                width: 1px;
+                height: 1px;
+
+            }
+        }
+    }
+    @media screen and (min-width: 960px) {
+        .main_title {
+            width: 200px;
+            margin-right: 1rem;
+        }
+        .main_input {
+            width: 100%;
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+        .main_title {
+            width: 230px;
+            margin-right: 1rem;
+        }
+    }
+}
+
+// 스크롤 부분
+.main_scroll_wrap {
+    position: relative;
+    height: auto;
+    // padding-top: 3rem;
+    // padding-bottom: 2rem;
+    padding: 30px 25px 20px;
+    background-color: $light_black_color;
+    .main_characteristic {
+        position: relative;
+        color: #FFFFFF;
+        .main_characteristic_title {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .main_list_title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 60px;
+            border: 1px solid #FFFFFF;
+            cursor: pointer;
+            .main_list_name {
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+            > img {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 30px;
+                width: 14px;
+                height: 7px;
+            }
+
+            > input[type=number] {
+                text-align: center;
+                font-size: 1.5rem;
+                color: #FFFFFF;
+            }
+        }
+        .main_list_type {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            > li {
+                width: 25%;
+                height: auto;
+                color: $black_color;
+                padding: .5rem;
+                .list_detail {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #FFFFFF;
+                    padding: 1rem 0;
+                    cursor: pointer;
+                    > img {
+                        width: 3rem;
+                        height: 3rem;
+                    }
+                }
+            }
+        }
+        // 리스트 목록
+        .charList {
+            position: absolute;
+            width: 100%;
+            height: 230px;
+            background-color: $light_black_color;
+            z-index: 1;
+            border: 1px solid #FFFFFF;
+            overflow: auto;
+            .char_search {
+                padding: 1rem;
+                > input[type=text] {
+                    background-color: #FFFFFF;
+                    height: 40px;
+                }
+            }
+            > li {
+                width: 100%;
+                height: 40px;
+                padding: 0 1rem;
+                line-height: 40px;
+                font-size: 1.2rem;
+                cursor: pointer;
+                &:hover {
+                    background-color: #2A2A2A;
+                }
+            }
+        }
+    }
+    .main_button_wrap {
+        display: flex;
+        > button {
+            width: 100%;
+            height: 40px;
+            color: #FFFFFF;
+            font-size: 1.45rem;
+            font-weight: 600;
+            transform: skew(-20deg);
+            &:first-child {
+                background-color: $red_color;
+                margin-right: .5rem;
+            }
+            &:last-child {
+                background-color: $black_color;
+                margin-left: .5rem;
+            }
+        }
+    }
+}
+
+.main_detail {
+    position: absolute;
+    left: 50%;
+    bottom: -29px;
+    transform: translateX(-50%);
+    width: 119px;
+    height: 29px;
+    background: transparent url(./icons/icon_close2.png);
+    > p {
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}
+
+// ViewHeader
+#view_header {
+    display: flex;
+    justify-content: space-between;
+    > div {
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+        color: #FFFFFF;
+        cursor: pointer;
+        > img {
+            width: 28px;
+            height: 28px;
+            margin: 0 1rem;
+        }
+    }
+    .view_prev_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 49%;
+        margin-right: 2%;
+        background-color: #393939;
+    }
+    .view_next_wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 49%;
+        background-color: #393939;
+    }
+}
