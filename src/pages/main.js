@@ -9,7 +9,7 @@ const Main = () => {
 
     return (
         <div>
-            <Header />
+            <Header setPokemon={setPokemon} />
             
             {
                 pokemon.length > 0 && <Contents pokemon={pokemon} setPokemon={setPokemon} />

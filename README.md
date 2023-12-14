@@ -1,5 +1,21 @@
+# 개인 프로젝트 - 포몬 도감
+
 ## Intro
-* 포켓몬 도감
+- Solo Project
+- 프젝트 기간 ( 2023. 12. 12 ~ 2023. 12. 14)
+
+## Tool
+- Front-End : React ( JSX )
+- 참고 페이지 : https://pokemonkorea.co.kr/pokedex
+
+### Main
+
+### View
+
+### 원본과 다른 내용
+원본 JSON과 다른 포켓몬 데이터로 만들었기에 상세검색 내용이 다릅니다.
+
+
 
 ## ----------
 Elements

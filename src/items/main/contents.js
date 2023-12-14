@@ -53,7 +53,7 @@ const Contents = ({ pokemon, setPokemon }) => {
         }
         
     }
-    console.log(pokemon)
+    // console.log(pokemon)
     
     return (
         <section id={styles.pokemon_wrap}>

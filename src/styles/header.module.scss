@@ -162,7 +162,8 @@ header {
         .charList {
             position: absolute;
             width: 100%;
-            height: 230px;
+            // height: 230px;
+            height: auto;
             background-color: $light_black_color;
             z-index: 1;
             border: 1px solid #FFFFFF;
@@ -255,4 +256,10 @@ header {
         width: 49%;
         background-color: #393939;
     }
+}
+
+.borderLine {
+    border-inline: .8rem solid #999;
+    writing-mode: horizontal-tb;
+    direction: rtl;
 }
