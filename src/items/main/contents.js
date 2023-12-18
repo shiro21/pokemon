@@ -10,7 +10,6 @@ const Contents = ({ pokemon, setPokemon }) => {
     const [searchOpen, setSearchOpen] = useState(false);
     // 도감번호 순서
     const [select, setSelect] = useState("도감번호 순서");
-    // console.log(pokemon)
 
     const searchSelect = (list) => {
         setSearchOpen(false);
@@ -53,7 +52,6 @@ const Contents = ({ pokemon, setPokemon }) => {
         }
         
     }
-    // console.log(pokemon)
     
     return (
         <section id={styles.pokemon_wrap}>
@@ -81,7 +79,7 @@ const Contents = ({ pokemon, setPokemon }) => {
                 </div>
                 <ul className={styles.pokemon_list_wrap}>
                     {
-                        pokemon.length > 0 && pokemon.map((item, index) => (
+                        pokemon.length > 0 && pokemon.map((item) => (
                             <li key={item.id}>
                                 <Pokemon pokemon={item} />
                             </li>

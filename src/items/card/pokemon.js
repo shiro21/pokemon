@@ -1,6 +1,8 @@
 import styles from "@styles/contents.module.scss";
 import { useNavigate } from "react-router-dom";
 
+import { useRef, useState } from "react";
+
 const TypeComponent = ({ type }) => {
     switch (type.trim()) {
         case "독" :
@@ -47,11 +49,64 @@ const TypeComponent = ({ type }) => {
 const Pokemon = ({pokemon}) => {
 
     const navigation = useNavigate();
+    // 카드
+    const cardRef = useRef(null);
+    // 복사 카드
+    const cardDuplicationRef = useRef(null);
+    // 카드 스타일
+    const [cardStyle, setCardStyle] = useState({
+        backgroundImage: `url(${pokemon.img})`,
+        transform: `perspective(0) rotateX(0) rotateY(0))`
+    })
+    // 복사 카드 스타일
+    const [cardDupliStyle, setCardDupliStyle] = useState({
+        backgroundImage: `url(${pokemon.img})`,
+        backgroundPosition: "0",
+        filter: "none"
+    })
+
+    // 마우스 움직일 때
+    const mouseMoveIn = (e, item) => {
+        // console.log(e.pageX)
+        // console.log(item)
+
+        let x = e.nativeEvent.offsetX;
+        let y = e.nativeEvent.offsetY;
+        // console.log(x);
+        let rotateX = 4 / 30 * y - 20;
+        let rotateY = -1 / 5 * x + 20;
+
+        // e.target.style.transform = `rotateX(${rotateX}deg)`;
+        // e.target.style.transform = `rotateY(${rotateY}deg)`;
+
+        // e.target.style = `transform : perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+
+        setCardStyle({...cardStyle, transform: `perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`});
+        setCardDupliStyle({...cardDupliStyle, backgroundPosition: `${x / 5 + y / 5}%`, filter: `opacity(${x/200}) brightness(1.2)`})
+        // cardRef.current.style = "transform : rotateY(20deg)"
+        // console.log(cardMove);
+    }
+
+    const mouseMoveOut = (e) => {
+
+        setCardStyle({
+            ...cardStyle,
+            transform: `perspective(350px) rotateX(0deg) rotateY(0deg)`
+        })
+        setCardDupliStyle({
+            backgroundImage: `url(${pokemon.img})`,
+            backgroundPosition: "0",
+            filter: "none"
+        })
+    }
 
     return (
         <div className={styles.pokemon_card_wrap} onClick={() => navigation(`/view/${pokemon.id}`, { state: pokemon })}>
             <div className={styles.pokemon_image_wrap}>
-                <img src={pokemon.img} alt={`${pokemon.num}. ${pokemon.name}`} />
+                <div ref={cardDuplicationRef} style={cardDupliStyle} className={styles.pokemon_image_absolute} title={`${pokemon.num}. ${pokemon.name}`} />
+                <div ref={cardRef} style={cardStyle} onMouseMove={(e) => mouseMoveIn(e)} onMouseOut={(e) => mouseMoveOut(e)} className={styles.pokemon_image} title={`${pokemon.num}. ${pokemon.name}`} />
+                {/* <img className={styles.pokemon_image} src={pokemon.img} alt={`${pokemon.num}. ${pokemon.name}`} ref={cardRef} onMouseMove={(e) => mouseMoveIn(e)} /> */}
+                {/* <img className={styles.pokemon_image_absolute} src={pokemon.img} alt={`${pokemon.num}. ${pokemon.name}`} onMouseMove={(e) => mouseMoveIn(e)} /> */}
             </div>
             <div className={styles.pokemon_information_wrap}>
                 <h5>No.{pokemon.num}. <em>{pokemon.name}</em></h5>

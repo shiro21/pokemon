@@ -45,9 +45,9 @@ const Header = ({ setPokemon }) => {
         let search1;
 
         if (pokeNumber[0] < 1 || pokeNumber[1] > 151 || pokeNumber[0] > pokeNumber[1]) {
-            alert("도감번호를 확인해주세요.")
+            return alert("도감번호를 확인해주세요.")
         } else if (pokeType === "") {
-            alert("타입을 선택해주세요.");
+            return alert("타입을 선택해주세요.");
         }
 
         if (pokeSearch === "") {
@@ -61,6 +61,7 @@ const Header = ({ setPokemon }) => {
         const search3 = await search2.filter(poke => poke.type.includes(pokeType));
 
         setPokemon(search3);
+        setSearchOpen(false);
 
     }
 
@@ -76,6 +77,7 @@ const Header = ({ setPokemon }) => {
         const search2 = await search1.filter(poke => poke.id >= pokeNumber[0] && poke.id <= pokeNumber[1]);
         
         setPokemon(search2);
+        setSearchOpen(false);
     }
 
     const conditionInitial = () => {
