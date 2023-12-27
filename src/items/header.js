@@ -97,7 +97,7 @@ const Header = ({ setPokemon }) => {
                         <em>포켓몬 도감</em>
                     </h2>
                     <div className={styles.main_input}>
-                        <input type="text" value={pokeSearch} onChange={(e) => setPokeSearch(e.target.value)} placeholder="포켓몬 이름 또는 설명, 특성 키워드를 입력해주세요." />
+                        <input type="text" value={pokeSearch} onChange={(e) => setPokeSearch(e.target.value)} placeholder="포켓몬 이름을 입력해주세요." />
                         <button onClick={pokeSearchBtn}>
                             <img src={Search} alt="검색" />
                             <i className="ir_pm">검색</i>

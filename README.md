@@ -8,7 +8,11 @@
 - Front-End : React ( JSX )
 - 참고 페이지 : https://pokemonkorea.co.kr/pokedex
 
-### Main
+### 검색조건
+* 포켓몬 이름검색( 상단 돋보기 클릭 )
+- 조건: 이름, 도감번호, 타입선택
+* 조건 약점 ( 검색 클릭 )
+- 도감번호, 타입
 
 ### View
 
